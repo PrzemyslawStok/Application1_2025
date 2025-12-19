@@ -17,17 +17,11 @@ import com.example.application1.ui.theme.Application1Theme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            Application1Theme {
+            PersonInfo(
+                name = "Przemysław", surname = "Stokłosa"
+            )
 
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
         }
     }
 }
@@ -35,20 +29,18 @@ class MainActivity : ComponentActivity() {
 const val TAG = "Aplikacja"
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun PersonInfo(name: String, surname: String) {
     Log.v(TAG, "Application info")
+
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = "$name $surname"
     )
-    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-    Log.i(TAG, "numbers: $numbers")
+    Text(text="Bielsko-Biała")
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Application1Theme {
-        Greeting("Android")
-    }
+        PersonInfo("Przemysław", "Stokłosa")
 }

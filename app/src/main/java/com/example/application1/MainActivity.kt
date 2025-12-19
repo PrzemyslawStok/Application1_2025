@@ -1,6 +1,7 @@
 package com.example.application1
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -19,6 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Application1Theme {
+
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
@@ -30,12 +32,17 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+const val TAG = "Aplikacja"
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Log.v(TAG, "Application info")
     Text(
         text = "Hello $name!",
         modifier = modifier
     )
+    val numbers = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+    Log.i(TAG, "numbers: $numbers")
 }
 
 @Preview(showBackground = true)

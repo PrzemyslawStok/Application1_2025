@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
 //            PersonInfo(
 //                name = "Przemysław", surname = "Stokłosa"
 //            )
-            matrix()
+            Matrix()
 
         }
     }
@@ -53,11 +53,14 @@ fun PersonInfo(name: String, surname: String) {
 }
 
 @Composable
-fun matrix(){
-    var i = 10
-    Text(
-        text = "$i", Modifier.padding(2.dp)
-    )
+fun Matrix() {
+    var no = 1
+    Row {
+        for (i in 1..5)
+            Text(
+                text = "${no++}", Modifier.padding(2.dp)
+            )
+    }
 }
 
 @Preview(showBackground = true)

@@ -79,12 +79,14 @@ fun MyView(rows: Int = 5, cols: Int = 5) {
     Column {
         Text(text = "Macierz: ${rows}x${cols}:")
         Spacer(Modifier.height(5.dp))
-        Matrix(rows, cols)
-        Spacer(Modifier.height(5.dp))
-        Image(
-            painter = painterResource(R.mipmap.ic_launcher),
-            contentDescription = null
-        )
+        Row {
+            Matrix(rows, cols)
+            Spacer(Modifier.width(5.dp))
+            Image(
+                painter = painterResource(R.drawable.outline_battery_6_bar_24),
+                contentDescription = null
+            )
+        }
     }
 }
 

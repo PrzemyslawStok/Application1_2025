@@ -5,16 +5,21 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.focusModifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.application1.ui.theme.Application1Theme
@@ -26,7 +31,7 @@ class MainActivity : ComponentActivity() {
 //            PersonInfo(
 //                name = "Przemysław", surname = "Stokłosa"
 //            )
-            Matrix()
+            MyView()
 
         }
     }
@@ -56,19 +61,35 @@ fun PersonInfo(name: String, surname: String) {
 fun Matrix(rows: Int = 5, cols: Int = 5) {
     var no = 1
     Column {
-        for (j in 1..5) {
+        for (j in 1..rows) {
             Row {
-                for (i in 1..5)
+                for (i in 1..cols)
                     Text(
-                        text = "${no++}", Modifier.padding(2.dp)
+                        text = "${no++}", Modifier
+                            .padding(2.dp)
+                            .width(20.dp)
                     )
             }
         }
     }
 }
 
+@Composable
+fun MyView(rows: Int = 5, cols: Int = 5) {
+    Column {
+        Text(text = "Macierz: ${rows}x${cols}:")
+        Spacer(Modifier.height(5.dp))
+        Matrix(rows, cols)
+        Spacer(Modifier.height(5.dp))
+        Image(
+            painter = painterResource(R.mipmap.ic_launcher),
+            contentDescription = null
+        )
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    PersonInfo("Przemysław", "Stokłosa")
+    MyView()
 }

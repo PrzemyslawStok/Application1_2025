@@ -53,13 +53,17 @@ fun PersonInfo(name: String, surname: String) {
 }
 
 @Composable
-fun Matrix() {
+fun Matrix(rows: Int = 5, cols: Int = 5) {
     var no = 1
-    Row {
-        for (i in 1..5)
-            Text(
-                text = "${no++}", Modifier.padding(2.dp)
-            )
+    Column {
+        for (j in 1..5) {
+            Row {
+                for (i in 1..5)
+                    Text(
+                        text = "${no++}", Modifier.padding(2.dp)
+                    )
+            }
+        }
     }
 }
 

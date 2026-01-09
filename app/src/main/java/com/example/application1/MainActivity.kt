@@ -82,6 +82,11 @@ fun Matrix(rows: Int = 5, cols: Int = 5) {
 }
 
 @Composable
+fun Progress(maxNo: Int = 10) {
+
+}
+
+@Composable
 fun MyView(rows: Int = 5, cols: Int = 5) {
     //var number = 0
     var number by remember { mutableIntStateOf(0) }
@@ -106,16 +111,19 @@ fun MyView(rows: Int = 5, cols: Int = 5) {
         Row {
             Button(onClick = {
                 number = number + 1
-                Log.v(TAG, "Number: $number")
-
             }) {
-                Row {
-                    Text("Dodaj")
-                }
+                Text("Dodaj")
             }
             Spacer(Modifier.width(5.dp))
             Text("Aktualna liczba: $number")
         }
+        Button(onClick = {
+            noImages = noImages + 1
+        }) {
+            Text("Dodaj obrazek")
+
+        }
+        Progress(maxNo = 7)
     }
 }
 

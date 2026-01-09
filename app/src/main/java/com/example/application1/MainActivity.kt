@@ -78,6 +78,7 @@ fun Matrix(rows: Int = 5, cols: Int = 5) {
 
 @Composable
 fun MyView(rows: Int = 5, cols: Int = 5) {
+    var number = 0
     Column {
         Text(text = "Macierz: ${rows}x${cols}:")
         Spacer(Modifier.height(5.dp))
@@ -101,15 +102,16 @@ fun MyView(rows: Int = 5, cols: Int = 5) {
                 )
             }
         }
-        TextButton(onClick = {}) {
-            Row {
-                Text("Klawisz")
-                Spacer(Modifier.width(5.dp))
-                Image(
-                    painter = painterResource(R.drawable.outline_battery_6_bar_24),
-                    contentDescription = null
-                )
+        Row {
+            Button(onClick = {
+                number = number + 1
+            }) {
+                Row {
+                    Text("Dodaj")
+                }
             }
+            Spacer(Modifier.width(5.dp))
+            Text("Aktualna liczba: $number")
         }
     }
 }

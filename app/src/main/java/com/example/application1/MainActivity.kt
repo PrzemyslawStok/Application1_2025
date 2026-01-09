@@ -94,20 +94,13 @@ fun MyView(rows: Int = 5, cols: Int = 5) {
             Matrix(rows, cols)
             Spacer(Modifier.width(5.dp))
             Column {
-                Image(
-                    painter = painterResource(R.drawable.outline_battery_6_bar_24),
-                    contentDescription = null
-                )
-                Spacer(Modifier.width(5.dp))
-                Image(
-                    painter = painterResource(R.drawable.outline_battery_6_bar_24),
-                    contentDescription = null
-                )
-                Spacer(Modifier.width(5.dp))
-                Image(
-                    painter = painterResource(R.drawable.outline_battery_6_bar_24),
-                    contentDescription = null
-                )
+                for (i in 1..noImages) {
+                    Image(
+                        painter = painterResource(R.drawable.outline_battery_6_bar_24),
+                        contentDescription = null
+                    )
+                    Spacer(Modifier.width(5.dp))
+                }
             }
         }
         Row {

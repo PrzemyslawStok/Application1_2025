@@ -85,6 +85,7 @@ fun Matrix(rows: Int = 5, cols: Int = 5) {
 fun MyView(rows: Int = 5, cols: Int = 5) {
     //var number = 0
     var number by remember { mutableIntStateOf(0) }
+    var noImages by remember { mutableIntStateOf(1) }
 
     Column {
         Text(text = "Macierz: ${rows}x${cols}:")

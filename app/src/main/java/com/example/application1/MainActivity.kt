@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -82,11 +83,24 @@ fun MyView(rows: Int = 5, cols: Int = 5) {
         Row {
             Matrix(rows, cols)
             Spacer(Modifier.width(5.dp))
-            Image(
-                painter = painterResource(R.drawable.outline_battery_6_bar_24),
-                contentDescription = null
-            )
+            Column {
+                Image(
+                    painter = painterResource(R.drawable.outline_battery_6_bar_24),
+                    contentDescription = null
+                )
+                Spacer(Modifier.width(5.dp))
+                Image(
+                    painter = painterResource(R.drawable.outline_battery_6_bar_24),
+                    contentDescription = null
+                )
+                Spacer(Modifier.width(5.dp))
+                Image(
+                    painter = painterResource(R.drawable.outline_battery_6_bar_24),
+                    contentDescription = null
+                )
+            }
         }
+        Button(onClick = {}) { Text("Klawisz") }
     }
 }
 

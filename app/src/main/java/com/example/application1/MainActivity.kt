@@ -83,7 +83,21 @@ fun Matrix(rows: Int = 5, cols: Int = 5) {
 
 @Composable
 fun Progress(maxNo: Int = 10) {
-
+    var number by remember { mutableIntStateOf(0) }
+    Row {
+        Button(onClick = {
+            number = number + 1
+        }) {
+            Text("Start")
+        }
+        for (i in 1..number) {
+            Image(
+                painter = painterResource(R.drawable.outline_battery_6_bar_24),
+                contentDescription = null
+            )
+            Spacer(Modifier.width(5.dp))
+        }
+    }
 }
 
 @Composable

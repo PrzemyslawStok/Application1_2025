@@ -1,5 +1,6 @@
 package com.example.application1
 
+import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
@@ -87,13 +88,20 @@ fun Progress(maxNo: Int = 10) {
     Row {
         Button(onClick = {
             number = number + 1
+            if (number > maxNo)
+                number = 0
         }) {
             Text("Start")
         }
+        val decFormatter = DecimalFormat("#.0")
+        val fNumber = decFormatter.format(number.toDouble() / maxNo.toDouble() * 100)
+
+        Text("${fNumber}%")
         for (i in 1..number) {
             Image(
                 painter = painterResource(R.drawable.outline_battery_6_bar_24),
-                contentDescription = null
+                contentDescription = null,
+                modifier = Modifier.size(50.dp)
             )
             Spacer(Modifier.width(5.dp))
         }

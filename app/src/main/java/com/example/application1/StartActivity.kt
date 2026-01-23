@@ -1,5 +1,6 @@
 package com.example.application1
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,14 +19,19 @@ import androidx.core.view.WindowInsetsCompat
 class StartActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val game1Activity = Intent(this, Game1::class.java)
+        val game2Activity = Intent(this, MainActivity::class.java)
+
         setContent {
             Column {
                 Text("Ekran startowy", fontSize = 35.sp)
                 Button(onClick = {
+                    startActivity(game1Activity)
                 }) {
                     Text("Gra 1")
                 }
                 Button(onClick = {
+                    startActivity(game2Activity)
                 }) {
                     Text("Gra 2")
                 }

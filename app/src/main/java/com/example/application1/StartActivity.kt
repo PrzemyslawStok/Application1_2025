@@ -36,6 +36,11 @@ class StartActivity : ComponentActivity() {
                 }) {
                     Text("Gra 2")
                 }
+                Button(onClick = {
+                    startActivity(game3Activity)
+                }) {
+                    Text("Gra 3")
+                }
             }
 
         }

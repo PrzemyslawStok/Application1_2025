@@ -21,6 +21,7 @@ class StartActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val game1Activity = Intent(this, Game1::class.java)
         val game2Activity = Intent(this, MainActivity::class.java)
+        val game3Activity = Intent(this, Game2::class.java)
 
         setContent {
             Column {

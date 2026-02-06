@@ -9,10 +9,18 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.sp
 import kotlin.random.Random
 
 class Game2 : ComponentActivity() {
+
+    var min = 0
+    var max = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -24,21 +32,22 @@ class Game2 : ComponentActivity() {
 
     @Composable
     fun StartGame() {
-        var min = 0
-        var max = 100
-        val randomNumber = Random.nextInt(min, max)
+        var randomNumber = Random.nextInt(min, max)
         val activity = this
         Column {
             Text("Zgadnij liczbę z przedziału 0-100 ($randomNumber)", fontSize = 25.sp)
+            Text("Liczba prób: $randomNumber", fontSize = 20.sp)
             Text("Moja liczba: ${estimateNumber(min, max)}", fontSize = 30.sp)
             Row {
                 Button(onClick = {
                     Toast.makeText(activity,"Coś jest nie tak...", Toast.LENGTH_LONG).show()
+                    randomNumber++
                 }) {
                     Text("Za mała")
                 }
                 Button(onClick = {
                     Toast.makeText(activity,"Coś jest nie tak...", Toast.LENGTH_LONG).show()
+                    randomNumber++
                 }) {
                     Text("Za duża")
                 }
@@ -48,6 +57,7 @@ class Game2 : ComponentActivity() {
     }
 
     fun estimateNumber(min: Int, max: Int): Int {
+
         return 5
     }
 }

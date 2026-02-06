@@ -18,8 +18,15 @@ import kotlin.random.Random
 
 class Game2 : ComponentActivity() {
 
-    var min = 0
-    var max = 100
+    var min : Int
+    var max : Int
+    var randomNumber : Int
+
+    init{
+        min = 0
+        max = 100
+        randomNumber = Random.nextInt(min, max)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,22 +39,23 @@ class Game2 : ComponentActivity() {
 
     @Composable
     fun StartGame() {
-        var randomNumber = Random.nextInt(min, max)
         val activity = this
+        var number_of_trials by remember {mutableIntStateOf(0)}
+
         Column {
             Text("Zgadnij liczbę z przedziału 0-100 ($randomNumber)", fontSize = 25.sp)
-            Text("Liczba prób: $randomNumber", fontSize = 20.sp)
-            Text("Moja liczba: ${estimateNumber(min, max)}", fontSize = 30.sp)
+            Text("Liczba prób: $number_of_trials", fontSize = 20.sp)
+            Text("Moja liczba: ${estimateNumber()}", fontSize = 30.sp)
             Row {
                 Button(onClick = {
                     Toast.makeText(activity,"Coś jest nie tak...", Toast.LENGTH_LONG).show()
-                    randomNumber++
+                    number_of_trials++
                 }) {
                     Text("Za mała")
                 }
                 Button(onClick = {
                     Toast.makeText(activity,"Coś jest nie tak...", Toast.LENGTH_LONG).show()
-                    randomNumber++
+                    number_of_trials++
                 }) {
                     Text("Za duża")
                 }
@@ -56,7 +64,7 @@ class Game2 : ComponentActivity() {
 
     }
 
-    fun estimateNumber(min: Int, max: Int): Int {
+    fun estimateNumber(): Int {
 
         return 5
     }

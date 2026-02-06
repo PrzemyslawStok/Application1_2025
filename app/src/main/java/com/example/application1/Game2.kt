@@ -51,17 +51,20 @@ class Game2 : ComponentActivity() {
             Row {
                 Button(onClick = {
                     Toast.makeText(activity, "Coś jest nie tak...", Toast.LENGTH_LONG).show()
+                    min = currentNumber + 1
                     number_of_trials++
+                    estimateNumber()
                 }) {
                     Text("Za mała")
-                    min = currentNumber + 1
+
                 }
                 Button(onClick = {
                     Toast.makeText(activity, "Coś jest nie tak...", Toast.LENGTH_LONG).show()
                     number_of_trials++
+                    max = currentNumber - 1
+                    estimateNumber()
                 }) {
                     Text("Za duża")
-                    max = currentNumber - 1
                 }
             }
         }
@@ -69,6 +72,11 @@ class Game2 : ComponentActivity() {
     }
 
     fun estimateNumber() {
-        currentNumber = 5
+        currentNumber =  (max - min) / 2 + min
+
+
+        if(currentNumber == randomNumber){
+
+        }
     }
 }

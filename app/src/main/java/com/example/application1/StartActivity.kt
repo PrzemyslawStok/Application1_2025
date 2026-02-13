@@ -15,6 +15,9 @@ class StartActivity : ComponentActivity() {
         val game1Activity = Intent(this, Game1::class.java)
         val game2Activity = Intent(this, Game2::class.java)
         val game3Activity = Intent(this, Game3::class.java)
+        val game4Activity = Intent(this, Game2::class.java)
+        val game5Activity = Intent(this, Game3::class.java)
+
 
         setContent {
             Column {
@@ -33,6 +36,16 @@ class StartActivity : ComponentActivity() {
                     startActivity(game3Activity)
                 }) {
                     Text("Gra 3")
+                }
+                Button(onClick = {
+                    startActivity(game4Activity)
+                }) {
+                    Text("Gra 4")
+                }
+                Button(onClick = {
+                    startActivity(game5Activity)
+                }) {
+                    Text("Gra 5")
                 }
             }
 

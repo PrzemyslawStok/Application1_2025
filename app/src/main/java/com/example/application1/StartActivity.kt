@@ -15,8 +15,8 @@ class StartActivity : ComponentActivity() {
         val game1Activity = Intent(this, Game1::class.java)
         val game2Activity = Intent(this, Game2::class.java)
         val game3Activity = Intent(this, Game3::class.java)
-        val game4Activity = Intent(this, Game2::class.java)
-        val game5Activity = Intent(this, Game3::class.java)
+        val game4Activity = Intent(this, Game4::class.java)
+        val game5Activity = Intent(this, Game5::class.java)
 
 
         setContent {
